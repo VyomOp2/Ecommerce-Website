@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "@prisma/client": "^5.13.0",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@tanstack/react-table": "^8.17.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.378.0",
+    "mdb-ui-kit": "^7.3.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
@@ -20,7 +23,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.14.1",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
