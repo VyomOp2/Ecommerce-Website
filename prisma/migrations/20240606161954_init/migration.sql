@@ -5,6 +5,8 @@ CREATE TABLE "Product" (
     "model" TEXT NOT NULL,
     "owner" TEXT NOT NULL,
     "driven" INTEGER NOT NULL,
+    "order" INTEGER NOT NULL,
+    "quantity" INTEGER NOT NULL,
     "priceInRupee" INTEGER NOT NULL,
     "filePath" TEXT NOT NULL,
     "imagePath" TEXT NOT NULL,

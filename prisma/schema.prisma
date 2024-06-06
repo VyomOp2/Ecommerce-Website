@@ -16,6 +16,8 @@ model Product {
     model                   String
     owner                   String
     driven                  Int
+    order                   Int
+    quantity                Int
     priceInRupee            Int
     filePath                String
     imagePath               String

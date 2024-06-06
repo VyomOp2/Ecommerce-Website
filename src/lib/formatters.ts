@@ -1,7 +1,7 @@
 const CURRENCY_FORMATTER = new Intl.NumberFormat("en-US" , {
     currency: 'INR',
     style: 'currency',
-    minimumFractionDigits: 1
+    minimumFractionDigits: 0
 })
 
 export function FormatCurrency(amount : number) {

@@ -85,7 +85,7 @@ export function ProductForm() {
 
             <div className="text-muted-foreground">
                 {
-                    FormatCurrency((pricePaidInPaisa || 0 ) / 100 )
+                    FormatCurrency((pricePaidInPaisa || 0 ))
                 }
             </div>
 
@@ -97,6 +97,32 @@ export function ProductForm() {
                     name="description"
                     required />
                 {error.description && <div className="text-destructive">{error.description}</div>}
+            </div>
+
+{/* Order */}
+            <div className="space-y-2">
+                <Label htmlFor="order"> Order No. </Label>
+                <Input 
+                    type="number" 
+                    id="order" 
+                    name="order"
+                    required
+                    // defaultValue={product?.name || ""}
+                    />
+                {error.order && <div className="text-destructive">{error.order}</div>}
+            </div>
+
+{/* Quantity */}
+            <div className="space-y-2">
+                <Label htmlFor="quantity"> Quantity </Label>
+                <Input 
+                    type="number" 
+                    id="quantity" 
+                    name="quantity"
+                    required
+                    // defaultValue={product?.name || ""}
+                    />
+                {error.quantity && <div className="text-destructive">{error.quantity}</div>}
             </div>
 
 {/* File */}
@@ -122,7 +148,6 @@ export function ProductForm() {
             </div>
 
             <SubmitButton />
-
         </form>
     )
 }

@@ -1,9 +1,9 @@
 "use server"
 
 import db from "@/db/db"
-import { z } from "zod"
+import { string, z } from "zod"
 import fs from "fs/promises"
-import { redirect } from "next/navigation"
+import { notFound, redirect } from "next/navigation"
 
 
 const FileSchema = z.instanceof(File , { message : "Required" })
@@ -17,6 +17,8 @@ const AddSchema = z.object( {
     owner: z.string().min(1),
     driven: z.coerce.number().int().min(2),
     pricePaidInPaisa: z.coerce.number().int().min(2),
+    order: z.coerce.number().int().min(1),
+    quantity: z.coerce.number().int().min(1),
     file: FileSchema.refine(file => file.size > 0 , "Required"),
     image: ImageSchema.refine(file => file.size > 0 , "Required")
 })
@@ -51,10 +53,25 @@ export async function AddProduct(previousState: unknown , formData: FormData) {
             model: data.model,
             owner: data.owner,
             driven: data.driven,
+            order: data.order,
+            quantity: data.quantity,
             filePath,
             imagePath,
         }
     })
 
     redirect("/admin/products")
+}
+
+export async function ToogleProductAvailability (
+    id : string , 
+    isAvailableForPurchase : boolean ) {
+        await db.product.update({ where: { id } , data : isAvailableForPurchase })
+}
+
+
+export async function DeleteProduct ( id : string ) {
+    const product = await db.product.delete({ where : { id } })
+    if( product == null )
+        notFound()
 }
