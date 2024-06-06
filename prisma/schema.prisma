@@ -13,6 +13,9 @@ datasource db {
 model Product {
     id                      String                 @id @default(uuid())
     name                    String
+    model                   String
+    owner                   String
+    driven                  Int
     priceInRupee            Int
     filePath                String
     imagePath               String
